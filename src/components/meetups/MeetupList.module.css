@@ -1,0 +1,19 @@
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .mage{
+    width: 200px;
+    height: 200px;
+  
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: antiquewhite;
+    margin: 2em;
+    width: 400px; 
+    -ms-flex-align: center;
+  }
