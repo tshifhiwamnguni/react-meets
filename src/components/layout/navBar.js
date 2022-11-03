@@ -2,20 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import classes from "./navBar.module.css";
-function navBar() {
+function NavBar() {
   return (
-    <header className={`${classes.header} ${classes.containter}`}>
+    <header className={`${classes.header} ${classes.container}`}>
         <div className={classes.logo}>meetUPs</div>
       <nav   >
-        <ul className={`${classes.containter}`}>
+        <ul className={`${classes.container}`}>
           <li>
             <Link to="/"> all meets</Link>
           </li>
           <li>
-            <Link to="/new">new meets </Link>
+            <Link to="/new">add new meets </Link>
           </li>
           <li>
-            <Link to="/fav"> fav meeets</Link>
+            <Link to="/fav"> fav meets</Link>
           </li>
         </ul>
       </nav>
@@ -23,4 +23,4 @@ function navBar() {
   );
 }
 
-export default navBar;
+export default NavBar;

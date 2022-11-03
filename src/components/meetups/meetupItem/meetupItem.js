@@ -1,10 +1,12 @@
-import classes from './MeetupList.module.css'
+import classes from './MeetupItem.module.css'
 import React from "react";
+import Card from '../../ui/Card';
 
 function MeetupItem(props) {
-  console.log('2nd ', props);
   return (
-    <li className={classes.container} >
+    
+    
+    <li className={classes.container} ><Card>
       <div className={classes.image}>
         <img className={classes.mage}  src={props.image} alt=""/>
       </div>
@@ -15,10 +17,11 @@ function MeetupItem(props) {
             {props.description}
         </p>
       </div>
-      <div className={classes.action}>
+      <div className={classes.actions}>
         <button> add to favorite</button>
-      </div>
+      </div></Card>
     </li>
+    
   );
 }
 export default MeetupItem;

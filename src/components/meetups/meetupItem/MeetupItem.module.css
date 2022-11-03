@@ -45,12 +45,3 @@
     background-color: #ffe2ed;
   }
 
-  .mage{
-    width: 200px;
-    height: 200px;
-  }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-  }

@@ -1,8 +1,8 @@
 // import classes from './allmeets.module.css'
 import React from "react";
 
-import MeetupItem from '../components/meetups/meetupItem'
-import MeetupList from '../components/meetups/meetupList'
+import MeetupItem from '../components/meetups/meetupItem/meetupItem'
+import MeetupList from '../components/meetups/MeetupList/meetupList'
 
 function AllMeetsPage() {
 

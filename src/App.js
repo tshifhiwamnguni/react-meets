@@ -1,26 +1,19 @@
 import { Route, Routes } from "react-router-dom";
 
 import AllMeetsPage from "./pages/AllMeetUps";
-import FavoritePage from "./pages/Favourites";
+import FavoritePage from "./pages/Favorites";
 import NewMeetsPage from "./pages/NewMeets";
 
-import NavBar from './components/layout/navBar'
+import Layout from "./components/layout/layout";
 function App() {
   return (
-    <div>
-   <NavBar/>
+    <Layout>
       <Routes>
-        <Route path="/" element={ <AllMeetsPage />}>
-          
-        </Route>
-        <Route path="/new" element={ <NewMeetsPage />}>
-     
-        </Route>
-        <Route path="/fav" element={ <FavoritePage />}>
-     
-        </Route>
+        <Route path="/" element={<AllMeetsPage />}></Route>
+        <Route path="/new" element={<NewMeetsPage />}></Route>
+        <Route path="/fav" element={<FavoritePage />}></Route>
       </Routes>
-    </div>
+    </Layout>
   );
 }
 
