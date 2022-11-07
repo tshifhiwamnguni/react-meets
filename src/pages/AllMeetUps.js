@@ -1,78 +1,50 @@
 // import classes from './allmeets.module.css'
 import React from "react";
+import { useState,useEffect } from "react";
 
-import MeetupItem from '../components/meetups/meetupItem/meetupItem'
 import MeetupList from '../components/meetups/MeetupList/meetupList'
 
 function AllMeetsPage() {
 
+const [isLoading, setIsLoading] = useState(true)
+const [loadedMeetupData, setMeetupData] = useState(true)
 
-
-const DUMMY_DATA = [
-    {
-      id: 'm1',
-      title: '1',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg',
-      address: 'Meetupstreet 5, 12345 Meetup City',
-      description:
-        'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
-    },
-    {
-      id: 'm2',
-      title: '2',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg',
-      address: 'Meetupstreet 5, 12345 Meetup City',
-      description:
-        'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
-    },
-    {
-      id: '3',
-      title: '3',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg',
-      address: 'Meetupstreet 5, 12345 Meetup City',
-      description:
-        'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
-    },
-    
-    {
-      id: '4',
-      title: '4',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg',
-      address: 'Meetupstreet 5, 12345 Meetup City',
-      description:
-        'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
-    },
-    
-    {
-      id: '5',
-      title: '5',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg',
-      address: 'Meetupstreet 5, 12345 Meetup City',
-      description:
-        'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
-    },
-    {
-      id: '6',
-      title: '6',
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg',
-      address: 'Meetupstreet 5, 12345 Meetup City',
-      description:
-        'This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!',
-    }  
-  ];
-
-
+useEffect(()=>{
+  fetch('https://meetups-1ce57-default-rtdb.firebaseio.com/meetups.json')
+  .then(response=>{
+     return response.json()
+  }).then(data=>{
+    const meetups= []
+    for(const key in data){
+      const meetup ={
+        id: key,
+        ...data[key]
+      }
+      meetups.push(meetup)
+    }
+    console.log(data);
+      setIsLoading(false )
+      setMeetupData(meetups)
+  })
+},[])
+  
+if (isLoading) {
+  return(
+    <section>
+    <p>
+      loading ...
+    </p>
+    </section>
+  )
+  
+}
   return (
     <section>
         <h2>All Meets</h2>
-        <MeetupList meetup={DUMMY_DATA}/>
+        <MeetupList meetup={loadedMeetupData}/> 
+  
     </section>
+   
   );
 }
 

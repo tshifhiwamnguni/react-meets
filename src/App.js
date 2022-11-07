@@ -4,7 +4,7 @@ import AllMeetsPage from "./pages/AllMeetUps";
 import FavoritePage from "./pages/Favorites";
 import NewMeetsPage from "./pages/NewMeets";
 
-import Layout from "./components/layout/layout";
+import Layout from "./components/layout/layout/layout";
 function App() {
   return (
     <Layout>
