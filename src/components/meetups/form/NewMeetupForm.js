@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../../ui/Card";
-import classes from "./NewMeetupFrorm.module.css";
+import classes from "./NewMeetupForm.module.css";
 import { useRef } from "react";
 
 function NewMeetupForm(props) {
@@ -23,7 +23,7 @@ function NewMeetupForm(props) {
     console.log(meetUpData);
     props.onAddMeetups(meetUpData)
   }
-  return (
+  return ( 
     <Card>
       <form className={classes.form} onSubmit={submit}>
         <div className={classes.control}>
